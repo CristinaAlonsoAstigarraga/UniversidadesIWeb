@@ -26,7 +26,7 @@ class Asignatura(models.Model):
 class Estudiante(models.Model):
     universidad = models.ForeignKey(Universidad, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=40)
-    dni = models.CharField(length=9)
+    dni = models.CharField(max_length=9)
     fecha_nacimiento = models.DateField()
     # Es posible indicar un valor por defecto mediante 'default'
     grado = models.ForeignKey(Grado, on_delete=models.CASCADE)
