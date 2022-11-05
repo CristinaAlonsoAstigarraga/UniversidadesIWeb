@@ -6,6 +6,11 @@ import myapp
 urlpatterns = [
     #path('hola', views.paginaPrincipal, name='index'),
 
-    # ej: /miApp/universidad/
-    path('<str:nombre>/', views.universidad, name='universidad'),
+    # ej: /myapp/universidad/
+    #path('<str:nombre>/', views.universidad, name='universidad'),
+
+    # ej: /myapp/inicio/
+    #path('<str:>/', views.universidad, name='inicio'),
+
+    path('universidades/listadouniversidades/', views.listado_unis, name='listado_unis')
 ]
