@@ -12,5 +12,13 @@ urlpatterns = [
     # ej: /myapp/inicio/
     #path('<str:>/', views.universidad, name='inicio'),
 
-    path('universidades/listadouniversidades/', views.listado_unis, name='listado_unis')
+    # ej: 
+    # /myapp/universidades/listadouniversidades/
+    path('universidades/listadouniversidades/', views.listado_unis, name='listado_unis'),
+
+    # /myapp/universidades/listadouniversidades/
+    path('universidades/listadouniversidades/universidades.html', views.listado_unis, name='listado_unis'),
+
+    # /myapp/universidades/listadogrados/
+    path('universidades/listadouniversidades/grados.html', views.listado_grados, name='listado_grados')
 ]

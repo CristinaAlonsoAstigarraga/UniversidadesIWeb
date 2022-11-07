@@ -2,6 +2,7 @@ from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Universidad
+from .models import Grado
 
 # Create your views here.
 #def paginaPrincipal(request):
@@ -19,4 +20,9 @@ def inicio(request):
 def listado_unis(request):
     universidad = Universidad.objects.all()   #Cogemos todas las unis de la clase Universidad
     clave = {'universidades': universidad}
-    return render(request, 'lista_universidad.html', clave)
+    return render(request, 'universidades.html', clave)
+
+def listado_grados(request):
+    grado = Grado.objects.all()
+    clave = {'grados': grado}
+    return render(request, 'grados.html', clave)
