@@ -16,7 +16,7 @@ class Grado(models.Model):
     universidad = models.ForeignKey(Universidad, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=50)
     cod = models.CharField(max_length=12)
-    duracion = models.IntegerField
+    duracion = models.IntegerField(default=4)
 
 
 class Asignatura(models.Model):
