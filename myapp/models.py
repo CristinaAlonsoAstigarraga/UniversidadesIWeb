@@ -9,6 +9,8 @@ class Universidad(models.Model):
     ccaa = models.CharField(max_length=50)
     sistemaEducativo = models.CharField(max_length=50)  #Opciones: publica, privada
     
+    def __str__(self):
+        return self.nombre
 
 class Grado(models.Model):
     universidad = models.ForeignKey(Universidad, on_delete=models.CASCADE)

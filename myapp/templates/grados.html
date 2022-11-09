@@ -10,14 +10,18 @@
 </head>
 
 <body>
+    <!-- Añadir como título "Grados oficiales de la (nombreUniversidad)" -->
+    
     {% block content %}
     <table>
         <thead>
             <tr>
-                <th><a href="universidades.html" target="_blank">UNIVERSIDAD</a><br></th>
+                <!-- <th><a href="universidades.html" target="_blank">UNIVERSIDAD</a><br></th> -->
                 <th>NOMBRE</th>
                 <th>COD</th>
                 <th>DURACION<br></th>
+                <th><a href="asignaturas.html" target="_self">ASIGNATURAS</a></th>
+                <th><a href="estudiantes.html" target="_self">ESTUDIANTES</a><br></th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +29,15 @@
             {% if grados %}
             {% for grado in grados %}
             <tr>
-                <td>{{ grado.universidad.nombre }}</td>
+                <!-- <td>{{ grado.universidad.nombre }}</td> -->
                 <td>{{ grado.nombre }}</td>
                 <td>{{ grado.cod }}</td>
                 <td>{{ grado.duracion }}</td>
+                <!-- Preguntar a las asignaturas en qué grados están? -->
+                <td>{{ grado.asignaturas }}</td>
+                <!-- Preguntar a los estudiantes en qué grados están? -->
+                <td>{{ grado.estudiantes }}</td>
+                <!-- Hacer un contador que recorra toda la lista de estudiantes y devuelva el número -->
             </tr>
             {% endfor %}
             {% endif %}
