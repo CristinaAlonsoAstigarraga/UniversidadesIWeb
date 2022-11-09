@@ -9,9 +9,10 @@
 <body>
 
     {% for asignatura in asignaturas %}
-        <p>Nombre: {{ asignatura.nombre }}</p>
-        <p>Código: {{ asignatura.cod }}</p>
-        <p>Créditos: {{ asignatura.creditos }}</p>
+        <p><strong>Nombre:</strong> {{ asignatura.nombre }}</p>
+        <p><strong>Código:</strong> {{ asignatura.cod }}</p>
+        <p><strong>Créditos:</strong> {{ asignatura.creditos }}</p>
+        <br><br>
     {% endfor %}
 </body>
 </html>
