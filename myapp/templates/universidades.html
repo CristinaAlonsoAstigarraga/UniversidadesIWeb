@@ -21,22 +21,21 @@
             </tr>
         </thead>
         <tbody>
+
+            {% with contador="0" %}
+            {% endwith %}
             <!-- Si existen universidades, se mete en el for, que mete cada registro en la tabla -->
-            {% if universidades %}
-                {% for universidad in universidades %}
+            {% if listaTotal %}
+                {% for tuplaUniGrado in listaTotal %}
                     <tr>
-                        <td>{{ universidad.nombre }}</td>
+                        <td>{{ tuplaUniGrado.0.nombre }}</td>
                         <!-- Estaría bien poder hacer click en cada nombre y que te lleve a la info de esa universidad en concreto. -->
-                        <td>{{ universidad.cif }}</td>
-                        <td>{{ universidad.ccaa }}</td>
-                        <td>{{ universidad.sistemaEducativo }}</td>
-                        <!-- {% if grados %}
-                        {% for grado in grados %}
-                            <tr> -->
-                                <td>{{ grado.universidad }}</td>
-                            <!-- </tr>
-                        {% endfor %}
-                        {% endif %} -->
+                        <td>{{ tuplaUniGrado.0.cif }}</td>
+                        <td>{{ tuplaUniGrado.0.ccaa }}</td>
+                        <td>{{ tuplaUniGrado.0.sistemaEducativo }}</td>
+                        <td><a href='/myapp/universidades/grados/{{ tuplaUniGrado.0.nombre }}/' > link al grado </a></td>
+                                
+                            
                     </tr>
                 {% endfor %}
             {% endif %}

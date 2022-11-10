@@ -21,8 +21,23 @@ def inicio(request):
     return HttpResponse(request, 'inicio.html')
 
 def listado_unis(request):
+
+    listaTotalUniversidad = []  ##la posicion 0 va a ser la universidad y todos sus grados
     universidad = Universidad.objects.all()   #Cogemos todas las unis de la clase Universidad
-    clave = {'universidades': universidad}
+    listaGrados = []
+    for u in universidad:
+        grados = Grado.objects.filter(universidad = u)
+        for g in grados:
+            listaGrados.append(g)
+
+    ##llegados a este punto tengo todas las universidades y todos los grados de cada una, pero separados
+
+    for i in range(0, len(universidad)):
+        tupla = (universidad[i], listaGrados[i])
+        listaTotalUniversidad.append(tupla)
+
+
+    clave = {'listaTotal': listaTotalUniversidad}
     return render(request, 'universidades.html', clave)
 
 def listado_grados(request):
@@ -44,6 +59,14 @@ def obtenerNumEstudiantes(request):
     estudiante = Estudiante.objects.all()
     total = len(estudiante)
     return total
+
+def gradosUniversidad(request, nombreUniversidad):
+    universidad = Universidad.objects.get(nombre = nombreUniversidad)
+    grados = Grado.objects.filter(universidad = universidad)
+    clave = {'grados': grados}
+    return render(request, 'grados_uni.html', clave)
+
+
 
 
 # def obtenerNumEstudiantes(request, nombre):

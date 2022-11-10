@@ -33,10 +33,15 @@ urlpatterns = [
     #path('universidades/obtenerNumEstudiantes', views.obtenerNumEstudiantes, name='obtenerNumEstudiantes'),
 
     # /myapp/universidades/listadoestudiantes/
-    path('universidades/listadouniversidades/estudiantes.html', views.listado_estudiantes, name='listado_estudiantes')
+    path('universidades/listadouniversidades/estudiantes.html', views.listado_estudiantes, name='listado_estudiantes'), 
+
+    path('universidades/grados/<str:nombreUniversidad>/', views.gradosUniversidad, name='gradosUniversidad')
 ]
 
 
 # Crear elemento tipo a "gradosuniversidad", que haga referencia (href) a un path que apunte a una vista nueva 
 # que recibe como hiperparametro el nombre de la uni
 # En la view pido los grados que coincidan con el nombre que he recibido en el hiperparametro que he puesto
+
+# FALTA CREAR UNA URL QUE SEA LA QUE LLEVA DIRECTAMENTE A UN GRADO, DE AHI LA ASOCIAS CON EL HREF DEL ELEMENTO A.
+# CUANDO CREES ESA URL TEN EN CUENTA QUE LE VAS A PASAR ALGO COMO UN ID, STRING O LO QUE SEA MEDIANTE EL <int:ID> 
