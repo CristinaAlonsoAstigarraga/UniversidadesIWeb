@@ -18,6 +18,7 @@
                 <th>CCAA</th>
                 <th>SISTEMA EDUCATIVO</th>
                 <th><a href="grados.html" target="_blank">GRADOS</a><br></th>
+                <th><a href="estudiantes.html" target="_blank">ESTUDIANTESS</a><br></th>
             </tr>
         </thead>
         <tbody>
@@ -27,18 +28,20 @@
             <!-- Si existen universidades, se mete en el for, que mete cada registro en la tabla -->
             {% if listaTotal %}
                 {% for tuplaUniGrado in listaTotal %}
-                    <tr>
-                        <td>{{ tuplaUniGrado.0.nombre }}</td>
-                        <!-- Estaría bien poder hacer click en cada nombre y que te lleve a la info de esa universidad en concreto. -->
-                        <td>{{ tuplaUniGrado.0.cif }}</td>
-                        <td>{{ tuplaUniGrado.0.ccaa }}</td>
-                        <td>{{ tuplaUniGrado.0.sistemaEducativo }}</td>
-                        <td><a href='/myapp/universidades/grados/{{ tuplaUniGrado.0.nombre }}/' > link al grado </a></td>
-                                
-                            
-                    </tr>
+                        
+                            <tr>
+                                <td>{{ tuplaUniGrado.0.nombre }}</td>
+                                <!-- Estaría bien poder hacer click en cada nombre y que te lleve a la info de esa universidad en concreto. -->
+                                <td>{{ tuplaUniGrado.0.cif }}</td>
+                                <td>{{ tuplaUniGrado.0.ccaa }}</td>
+                                <td>{{ tuplaUniGrado.0.sistemaEducativo }}</td>
+                                <td><a href='/myapp/universidades/grados/{{ tuplaUniGrado.0.nombre }}/' > link al grado </a></td>    
                 {% endfor %}
             {% endif %}
+                {% for tuplaUniEstudiante in listaTotal %}
+                        <td><a href='/myapp/universidades/estudiantes/{{ tuplaUniEstudiante.0.nombre }}/' > link a los estudiantes </a></td>         
+                    </tr>
+                {% endfor %}
 
 
         </tbody>
@@ -69,16 +72,6 @@
     <br>
     <br>
 
-    <div class="form-group">
-        <label for="Comunidad autónoma">COMUNIDAD AUTÓNOMA:</label>
-        <select name="CCAA" id="ccaa" data-placeholder="- Seleccione la comunidad autónoma -"
-            class="form-control chosenCcaa" onchange="change(this.id, 'ccaa')"
-            value="%= typeof ccaa != 'undefined' ? Ccaa : '' %>">
-            <option value=""></option>
-            <option value="País Vasco">País Vasco</option>
-            <option value="Madrid">Madrid</option>
-        </select>
-    </div>
 </body>
 
 </html>

@@ -15,7 +15,7 @@
                 <th>DNI</th>
                 <th>FECHA NACIMIENTO</th>
                 <th>FECHA INICIO</th>
-                <th><a href="grados.html" target="_blank">GRADO</a><br></th>
+                <th>GRADO<br></th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
                         <td>{{ estudiante.dni }}</td>
                         <td>{{ estudiante.fecha_nacimiento }}</td>
                         <td>{{ estudiante.fechaInicio }}</td>
-                        
+                        <td>{{ estudiante.grado }}</td>
                     </tr>
                 {% endfor %}
             {% endif %}

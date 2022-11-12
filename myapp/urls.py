@@ -35,7 +35,9 @@ urlpatterns = [
     # /myapp/universidades/listadoestudiantes/
     path('universidades/listadouniversidades/estudiantes.html', views.listado_estudiantes, name='listado_estudiantes'), 
 
-    path('universidades/grados/<str:nombreUniversidad>/', views.gradosUniversidad, name='gradosUniversidad')
+    path('universidades/grados/<str:nombreUniversidad>/', views.gradosUniversidad, name='gradosUniversidad'),
+
+    path('universidades/estudiantes/<str:nombreUniversidad>/', views.estudiantesUniversidad, name='estudiantesUniversidad')
 ]
 
 

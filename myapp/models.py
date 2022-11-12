@@ -18,12 +18,18 @@ class Grado(models.Model):
     cod = models.CharField(max_length=12)
     duracion = models.IntegerField(default=4)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Asignatura(models.Model):
     grados = models.ForeignKey(Grado, on_delete=models.CASCADE) #Asiganturas que se ofrecen en cada grado
     nombre = models.CharField(max_length=50)
     cod = models.CharField(max_length=12)
     creditos = models.IntegerField(default=6)
+
+    def __str__(self):
+        return self.nombre
 
 class Estudiante(models.Model):
     universidad = models.ForeignKey(Universidad, on_delete=models.CASCADE)
@@ -33,5 +39,8 @@ class Estudiante(models.Model):
     # Es posible indicar un valor por defecto mediante 'default'
     grado = models.ForeignKey(Grado, on_delete=models.CASCADE)
     fechaInicio = models.DateField()
+
+    def __str__(self):
+        return self.nombre
 
 
