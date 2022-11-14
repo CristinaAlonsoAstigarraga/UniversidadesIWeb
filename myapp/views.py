@@ -12,7 +12,7 @@ from .models import Asignatura
  #   return HttpResponse("Hello, world!")
 
     
-s#Por cada aplicación, se crea un nuevo file
+#Por cada aplicación, se crea un nuevo file
 
 # def universidad(request, nombre):
 #     return HttpResponse("Consultando la empresa %s." % nombre)
@@ -120,8 +120,6 @@ def asignaturasGrado(request, nombreGrado):
     asignaturas = Asignatura.objects.filter(grado = grado)
     clave3 = {'asignaturas': asignaturas}
     return render(request, 'asignaturas.html', clave3)
-
-
 
 
 # def obtenerNumEstudiantes(request, nombre):

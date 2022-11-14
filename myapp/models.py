@@ -13,7 +13,7 @@ class Universidad(models.Model):
         return self.nombre
 
 class Grado(models.Model):
-    universidad = models.ForeignKey(Universidad, on_delete=models.CASCADE)
+    universidad = models.ForeignKey(Universidad, on_delete=models.CASCADE) #, related_name='grados'
     nombre = models.CharField(max_length=50)
     cod = models.CharField(max_length=12)
     duracion = models.IntegerField(default=4)

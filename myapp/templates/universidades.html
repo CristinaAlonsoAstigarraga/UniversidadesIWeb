@@ -11,49 +11,51 @@
 <body>
     <h1>GESTIÓN UNIVERSIDADES</h1>
     {% block content %}
-    <table id="tabla">
-        <thead>
-            <tr>
-                <th>NOMBRE<br></th>
-                <th>CIF</th>
-                <th>CCAA</th>
-                <th>SISTEMA EDUCATIVO</th>
-                <th>GRADOS<br></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% with contador="0" %}
-            {% endwith %}
-            <!-- Si existen universidades, se mete en el for, que mete cada registro en la tabla -->
-            {% if listaTotal %}
-                {% for tuplaUniGrado in listaTotal %}
-                    <tr>
-                        <td>{{ tuplaUniGrado.0.nombre }}</td>
-                        <td>{{ tuplaUniGrado.0.cif }}</td>
-                        <td>{{ tuplaUniGrado.0.ccaa }}</td>
-                        <td>{{ tuplaUniGrado.0.sistemaEducativo }}</td>
-                        <td><a href='/myapp/universidades/grados/{{ tuplaUniGrado.0.nombre }}/'> link al grado </a></td>
-                    </tr>
-                {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
-    <table id="tabla2">
-        <thead>
-            <tr>
-                <th>ESTUDIANTES<br></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if listaTotal %}
-                {% for tuplaUniEstudiante in listaTotal %}
-                    <tr>
-                        <td><a href='/myapp/universidades/estudiantes/{{ tuplaUniEstudiante.0.nombre }}/'> link a los estudiantes </a></td>
-                    </tr>
-                {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
+    <div class="tablas">
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>NOMBRE<br></th>
+                    <th>CIF</th>
+                    <th>CCAA</th>
+                    <th>SISTEMA EDUCATIVO</th>
+                    <th>GRADOS<br></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% with contador="0" %}
+                {% endwith %}
+                <!-- Si existen universidades, se mete en el for, que mete cada registro en la tabla -->
+                {% if listaTotal %}
+                    {% for tuplaUniGrado in listaTotal %}
+                        <tr>
+                            <td>{{ tuplaUniGrado.0.nombre }}</td>
+                            <td>{{ tuplaUniGrado.0.cif }}</td>
+                            <td>{{ tuplaUniGrado.0.ccaa }}</td>
+                            <td>{{ tuplaUniGrado.0.sistemaEducativo }}</td>
+                            <td><a href='/myapp/universidades/grados/{{ tuplaUniGrado.0.nombre }}/'> link al grado </a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+        <table id="tabla2">
+            <thead>
+                <tr>
+                    <th>ESTUDIANTES<br></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if listaTotal %}
+                    {% for tuplaUniEstudiante in listaTotal %}
+                        <tr>
+                            <td><a href='/myapp/universidades/estudiantes/{{ tuplaUniEstudiante.0.nombre }}/'> link a los estudiantes </a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
     {% endblock %}
 
 </body>
