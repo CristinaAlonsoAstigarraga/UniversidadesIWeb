@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ASIGNATURAS</title>
+    {% load static %}  
+    <link href="{% static 'css/tablas.css' %}" rel="stylesheet">
 </head>
 <body>
-
-    {% for asignatura in asignaturas %}
-        <p><strong>Nombre:</strong> {{ asignatura.nombre }}</p>
-        <p><strong>Código:</strong> {{ asignatura.cod }}</p>
-        <p><strong>Créditos:</strong> {{ asignatura.creditos }}</p>
-        <br><br>
-    {% endfor %}
+    {% block verGrados %}
+    <div class="verUniversidades">
+        <button><a href="/myapp/universidades/listadouniversidades/" target="_self">VER UNIVERSIDADES</a></button>
+    </div>
+    {% endblock %}
+    <br>
+    
+    {% if asignaturas %}
+        {% for asignatura in asignaturas %}
+            <p><strong>Nombre:</strong> {{ asignatura.nombre }}</p>
+            <p><strong>Código:</strong> {{ asignatura.cod }}</p>
+            <p><strong>Créditos:</strong> {{ asignatura.creditos }}</p>
+            <br><br>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>

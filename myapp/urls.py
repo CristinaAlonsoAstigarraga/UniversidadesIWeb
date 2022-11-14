@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 import myapp
 
 
@@ -37,8 +39,10 @@ urlpatterns = [
 
     path('universidades/grados/<str:nombreUniversidad>/', views.gradosUniversidad, name='gradosUniversidad'),
 
-    path('universidades/estudiantes/<str:nombreUniversidad>/', views.estudiantesUniversidad, name='estudiantesUniversidad')
-]
+    path('universidades/estudiantes/<str:nombreUniversidad>/', views.estudiantesUniversidad, name='estudiantesUniversidad'),
+
+    #path('universidades/grados/<str:nombreUniversidad>/<str:nombreUniversidad>/', views.asignaturasGrado, name='asignaturasGrado')
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 # Crear elemento tipo a "gradosuniversidad", que haga referencia (href) a un path que apunte a una vista nueva 

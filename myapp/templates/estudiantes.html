@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ESTUDIANTES</title>
+    {% load static %}
+    <link href="{% static 'css/tablas.css' %}" rel="stylesheet">
 </head>
+
 <body>
     {% block content %}
     <table id="tabla">
@@ -19,44 +23,36 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Si existen universidades, se mete en el for, que mete cada registro en la tabla -->
             {% if estudiantes %}
                 {% for estudiante in estudiantes %}
-                    <tr>
-                        <td>{{ estudiante.nombre }}</td>
-                        <!-- Estaría bien poder hacer click en cada nombre y que te lleve a la info de esa universidad en concreto. -->
-                        <td>{{ estudiante.dni }}</td>
-                        <td>{{ estudiante.fecha_nacimiento }}</td>
-                        <td>{{ estudiante.fechaInicio }}</td>
-                        <td>{{ estudiante.grado }}</td>
-                    </tr>
+                <tr>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.dni }}</td>
+                    <td>{{ estudiante.fecha_nacimiento }}</td>
+                    <td>{{ estudiante.fechaInicio }}</td>
+                    <td>{{ estudiante.grado }}</td>
+                </tr>
                 {% endfor %}
             {% endif %}
-
-
-        </tbody>
     </table>
-    <style>
-        table {
-            border: 1px solid #b3adad;
-            border-collapse: collapse;
-            padding: 5px;
-        }
-
-        table th {
-            border: 1px solid #b3adad;
-            padding: 5px;
-            background: #f0f0f0;
-            color: #313030;
-        }
-
-        table td {
-            border: 1px solid #b3adad;
-            text-align: center;
-            padding: 5px;
-            background: #ffffff;
-            color: #313030;
-        }
-    </style>
     {% endblock %}
+
+    <br><br><br><br><br>
+
+    {% block verGrados %}
+    <div class="verUniversidades">
+        <button><a href="/myapp/universidades/listadouniversidades/" target="_self">VER UNIVERSIDADES</a></button>
+    </div>
+    {% endblock %}
+
+    <br><br>
+
+    {% block verAsignaturas %}
+    <div class="verAsignaturas">
+        <button><a href="/myapp/universidades/listadouniversidades/asignaturas.html" target="_self">VER
+                ASIGNATURAS</a></button>
+    </div>
+    {% endblock %}
+</tbody>
+
 </html>

@@ -12,7 +12,7 @@ from .models import Asignatura
  #   return HttpResponse("Hello, world!")
 
     
-    #Por cada aplicación, se crea un nuevo file
+s#Por cada aplicación, se crea un nuevo file
 
 # def universidad(request, nombre):
 #     return HttpResponse("Consultando la empresa %s." % nombre)
@@ -60,6 +60,27 @@ def listado_unis2(request):
     clave = {'listaTotal': listaTotalUniversidad}
     return render(request, 'universidades.html', clave)
 
+def listado_unis3(request):
+
+    listaTotalGrado = []  ##la posicion 0 va a ser la universidad y todos sus grados
+    grado = Grado.objects.all()   #Cogemos todas las unis de la clase Universidad
+    listaAsignaturas = []
+    for g in grado:
+        asignaturas = Asignatura.objects.filter(grado = g)
+        for a in asignaturas:
+            listaAsignaturas.append(a)
+
+    ##llegados a este punto tengo todas las universidades y todos los grados de cada una, pero separados
+
+    for i in range(0, len(grado)):
+        tupla = (grado[i], listaAsignaturas[i])
+        listaTotalGrado.append(tupla)
+
+    clave = {'listaTotal': listaTotalGrado}
+    return render(request, 'grados.html', clave)
+
+
+
 def listado_grados(request):
     grado = Grado.objects.all()
     clave = {'grados': grado}
@@ -92,6 +113,13 @@ def estudiantesUniversidad(request, nombreUniversidad):
     estudiantes = Estudiante.objects.filter(universidad = universidad)
     clave2 = {'estudiantes': estudiantes}
     return render(request, 'estudiantes.html', clave2)
+
+
+def asignaturasGrado(request, nombreGrado):
+    grado = Grado.objects.get(nombre = nombreGrado)
+    asignaturas = Asignatura.objects.filter(grado = grado)
+    clave3 = {'asignaturas': asignaturas}
+    return render(request, 'asignaturas.html', clave3)
 
 
 
