@@ -6,48 +6,27 @@ import myapp
 
 
 urlpatterns = [
-    #path('hola', views.paginaPrincipal, name='index'),
 
-    # ej: /myapp/universidad/
-    #path('<str:nombre>/', views.universidad, name='universidad'),
 
-    # ej: /myapp/inicio/
-    #path('<str:>/', views.universidad, name='inicio'),
+    #PATHS - PARA LAS VISTAS BASADAS EN CLASES
+    path('universidades/listadouniversidades/', views.show_universidades.as_view(), name='show_universidades'),
+    
+    path('inicio/', views.inicio.as_view(), name='inicio'),
+    path('inicio/index/', views.inicio.as_view(), name='inicioI'),
 
-    # ej: 
 
-    # /myapp/inicio/
-    #path('inicio/', views.inicio, name='inicio'),
 
-    # /myapp/universidades/listadouniversidades/
-    path('universidades/listadouniversidades/', views.listado_unis, name='listado_unis'),
+    path('inicio/universidades/', views.show_universidades.as_view(), name='show_universidades'), #VentanaUniversidades - muestra el listado
+    path('inicio/grados/', views.show_grados.as_view(), name='show_grados'),
+    path('inicio/asignaturas/', views.show_asignaturas.as_view(), name='show_asignaturas'),
+    path('inicio/estudiantes/', views.show_estudiantes.as_view(), name='show_estudiantes'),
+    path('universidades/grados/<int:pk>/', views.gradosUniversidad.as_view(), name='gradosUniversidad'),
+    # path('estudiantes/grados/<int:pk>/', views.gradoEstudiante.as_view(), name='gradoEstudiante'),
+    path('universidades/asignaturas/<int:pk>/', views.asignaturasGrado.as_view(), name='asignaturasGrado'),
+    path('universidades/estudiantes/<int:pk>/', views.estudiantesUniversidad.as_view(), name='estudiantesUniversidad'),
+    path('universidades/estudiantesGrado/<int:pk>/', views.gradosUniversidadEstudiantes.as_view(), name='gradosUniEstudiantes'),
+    # /myapp/universidades/estudiantes/<str:NombreUniversidad>/
+    # path('universidades/estudiantes/<str:nombreUniversidad>/', views.estudiantesUniversidad, name='estudiantesUniversidad'),
+    path('universidades/listadouniversidades/asignaturas/<str:nombreGrado>', views.estudiGrado, name='estudiantesUniversidad11'),   #NO FUNCIONA
 
-    # /myapp/universidades/listadouniversidades/
-    path('universidades/listadouniversidades/universidades.html', views.listado_unis, name='listado_unis'),
-
-    # /myapp/universidades/listadogrados/
-    path('universidades/listadouniversidades/grados.html', views.listado_grados, name='listado_grados'),
-
-    # /myapp/universidades/listadoasignaturas/
-    path('universidades/listadouniversidades/asignaturas.html', views.listado_asignaturas, name='listado_asignaturas'),
-
-    # /myapp/universidades/obtenerNumEstudiantes
-    #path('universidades/obtenerNumEstudiantes', views.obtenerNumEstudiantes, name='obtenerNumEstudiantes'),
-
-    # /myapp/universidades/listadoestudiantes/
-    path('universidades/listadouniversidades/estudiantes.html', views.listado_estudiantes, name='listado_estudiantes'), 
-
-    path('universidades/grados/<str:nombreUniversidad>/', views.gradosUniversidad, name='gradosUniversidad'),
-
-    path('universidades/estudiantes/<str:nombreUniversidad>/', views.estudiantesUniversidad, name='estudiantesUniversidad'),
-
-    #path('universidades/grados/<str:nombreUniversidad>/<str:nombreUniversidad>/', views.asignaturasGrado, name='asignaturasGrado')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-
-# Crear elemento tipo a "gradosuniversidad", que haga referencia (href) a un path que apunte a una vista nueva 
-# que recibe como hiperparametro el nombre de la uni
-# En la view pido los grados que coincidan con el nombre que he recibido en el hiperparametro que he puesto
-
-# FALTA CREAR UNA URL QUE SEA LA QUE LLEVA DIRECTAMENTE A UN GRADO, DE AHI LA ASOCIAS CON EL HREF DEL ELEMENTO A.
-# CUANDO CREES ESA URL TEN EN CUENTA QUE LE VAS A PASAR ALGO COMO UN ID, STRING O LO QUE SEA MEDIANTE EL <int:ID> 

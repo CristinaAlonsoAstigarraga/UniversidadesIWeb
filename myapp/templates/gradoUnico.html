@@ -3,18 +3,18 @@
 {% load static %}
 
 {% block body %}
-<table id="tabla">
+<table>
     <thead>
         <tr>
-            <th><button class="ordenar" onclick="ordenarTabla()">NOMBRE<br></button></th>
+            <th>NOMBRE</th>
             <th>COD</th>
             <th>DURACION<br></th>
             <th>ASIGNATURAS</th>
         </tr>
     </thead>
     <tbody>
-        {% if object_list %}
-        {% for grado in object_list %}
+        {% if object.grados.all %}
+        {% for grado in object.grados.all %}
         <tr>
             <td>{{ grado.nombre }}</td>
             <td>{{ grado.cod }}</td>
@@ -25,12 +25,9 @@
         {% endif %}
     </tbody>
 </table>
-<div>
-    <p class="imprimir" style="background: rgb(63, 63, 247); text-align: center; justify-content: center
-    ; margin-top: 2%; margin-left: 30%; margin-right: 30%; border-radius: 20px;">Si quiere guardar la información de esta página,  <input style="background-color: rgb(154, 154, 251); border: none;" type="button" value="Imprime esta página" onclick="window.print()"></p>
-</div>
 
 <div class="verUniversidades">
     <button><a href="/myapp/universidades/listadouniversidades/" target="_self">VER UNIVERSIDADES</a></button>
 </div>
 {% endblock %}
+

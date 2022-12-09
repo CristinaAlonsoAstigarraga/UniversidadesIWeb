@@ -1,5 +1,7 @@
 from urllib import request
 from django.shortcuts import render
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.http import HttpResponse
 from .models import Universidad
 from .models import Grado
@@ -7,18 +9,70 @@ from .models import Estudiante
 from .models import Asignatura
 
 
-# Create your views here.
-#def paginaPrincipal(request):
- #   return HttpResponse("Hello, world!")
 
-    
-#Por cada aplicación, se crea un nuevo file
 
-# def universidad(request, nombre):
-#     return HttpResponse("Consultando la empresa %s." % nombre)
-    
-def inicio(request):
-    return HttpResponse(request, 'inicio.html')
+
+#VISTAS BASADAS EN CLASES
+
+class inicio(ListView):
+    model = Universidad
+    template_name = 'index.html'
+
+#Listado universidades:
+class show_universidades(ListView):
+    model = Universidad
+    template_name = 'universidades.html'  #Relacionado con la carpeta templates
+
+
+#Listado grados:
+class show_grados(ListView):
+    model = Grado
+    template_name = 'grados_uni.html'
+
+#Listado asignaturas:
+class show_asignaturas(ListView):
+    model = Asignatura
+    template_name = 'asignaturas.html'
+
+
+#Listado estudiantes:
+class show_estudiantes(ListView):
+    model = Estudiante
+    template_name = 'estudiantes.html'
+
+
+""" #Info detallada de una universidad
+class infoUni(DetailView):
+    model = Universidad
+    template_name = 'universidades.html'
+
+
+
+
+
+#Info detallada de un grado
+class infoGrado(DetailView):
+    model = Grado
+    template_name = 'grados_uni.html'
+
+
+
+
+
+#Info detallada de una asignatura
+class infoAsignatura(DetailView):
+    model = Asignatura
+    template_name = 'asignaturas.html'
+
+
+
+#Info detallada de un estudiante
+class infoEstudiatne(DetailView):
+    model = Estudiante
+    template_name = 'estudiantes.html'
+
+ """
+#VISTAS BASADAS EN FUNCIONES
 
 def listado_unis(request):
 
@@ -80,7 +134,6 @@ def listado_unis3(request):
     return render(request, 'grados.html', clave)
 
 
-
 def listado_grados(request):
     grado = Grado.objects.all()
     clave = {'grados': grado}
@@ -101,31 +154,36 @@ def obtenerNumEstudiantes(request):
     total = len(estudiante)
     return total
 
-def gradosUniversidad(request, nombreUniversidad):
-    universidad = Universidad.objects.get(nombre = nombreUniversidad)
-    grados = Grado.objects.filter(universidad = universidad)
-    clave = {'grados': grados}
-    return render(request, 'grados_uni.html', clave)
+class gradosUniversidad(DetailView):
+    model = Universidad
+    template_name = 'gradoUnico.html'
 
+class estudiantesUniversidad(DetailView):
+    model = Universidad
+    template_name = 'estudianteUnico.html'
 
-def estudiantesUniversidad(request, nombreUniversidad):
-    universidad = Universidad.objects.get(nombre = nombreUniversidad)
-    estudiantes = Estudiante.objects.filter(universidad = universidad)
-    clave2 = {'estudiantes': estudiantes}
-    return render(request, 'estudiantes.html', clave2)
+class gradosUniversidadEstudiantes(DetailView):
+    model = Grado
+    template_name = 'estudiantes.html'
 
+class asignaturasGrado(DetailView):
+    model = Grado
+    template_name = 'asignaturaUnica.html'
 
-def asignaturasGrado(request, nombreGrado):
+class gradoEstudiante(DetailView):
+    model = Grado
+    template_name = "gradoUnico.html"
+
+def estudiGrado(request, nombreGrado):
     grado = Grado.objects.get(nombre = nombreGrado)
-    asignaturas = Asignatura.objects.filter(grado = grado)
+    asignaturas = Asignatura.objects.filter(grados  = grado)
     clave3 = {'asignaturas': asignaturas}
     return render(request, 'asignaturas.html', clave3)
 
+""" 
 
-# def obtenerNumEstudiantes(request, nombre):
-#     grado = Grado.objects.get(Grado.universidad=nombre)
-#     clave = {'grados': grado}
-#     return total
+class show_universidades(DetailView):
+    model = Universidad
+    template_name = 'universidad.html'  #Relacionado con la carpeta templates """
 
-# def filtrarUnisCCAA(request, ccaaFilt):
-#     Grado.objects.filter(visible=True).filter(title__icontains = ccaaFilt)
+

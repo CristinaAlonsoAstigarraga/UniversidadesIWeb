@@ -9,17 +9,13 @@
 
     <br>
     
-    {% if object_list %}
-        {% for asignatura in object_list %}
+    {% if object.asignaturas.all %}
+        {% for asignatura in object.asignaturas.all %}
             <p><strong>Nombre:</strong> {{ asignatura.nombre }}</p>
             <p><strong>Código:</strong> {{ asignatura.cod }}</p>
             <p><strong>Créditos:</strong> {{ asignatura.creditos }}</p>
             <br><br>
         {% endfor %}
     {% endif %}
-    <div>
-        <p class="imprimir" style="background: rgb(63, 63, 247); text-align: center; justify-content: center
-        ; margin-top: 2%; margin-left: 30%; margin-right: 30%; border-radius: 20px;">Si quiere guardar la información de esta página,  <input style="background-color: rgb(154, 154, 251); border: none;" type="button" value="Imprime esta página" onclick="window.print()"></p>
-    </div>
 
     {% endblock %}

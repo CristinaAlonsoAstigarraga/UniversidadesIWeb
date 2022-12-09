@@ -1,62 +1,40 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <title> UNIVERSIDADES - Inicio</title>
-    {% load static %}  
-    <link href="{% static 'css/tablas.css' %}" rel="stylesheet">
-</head>
+{% load static %}
+{% block body %}
+<div class="tablas">
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th><button class="ordenar" onclick="ordenarTabla()">NOMBRE<br></button></th>
+                <th>CIF</th>
+                <th>CCAA</th>
+                <th>SISTEMA EDUCATIVO</th>
+                <th>GRADOS<br></th>
+                <th>ESTUDIANTES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Si existen universidades, se mete en el for, que mete cada registro en la tabla -->
+            {% if object_list %}
+            {% for uni in object_list %}
+            <tr>
+                <td>{{ uni.nombre }}</td>
+                <td>{{ uni.cif }}</td>
+                <td>{{ uni.ccaa }}</td>
+                <td>{{ uni.sistemaEducativo }}</td>
+                <td><a href="{% url 'gradosUniversidad'  uni.id  %}"> link a los grados </a></td>
+                <td><a href="{% url 'estudiantesUniversidad' uni.id %}"> link al los estudiantes </a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <p class="imprimir" style="background: rgb(63, 63, 247); text-align: center; justify-content: center
+    ; margin-top: 2%; margin-left: 30%; margin-right: 30%; border-radius: 20px;">Si quiere guardar la información de esta página,  <input style="background-color: rgb(154, 154, 251); border: none;" type="button" value="Imprime esta página" onclick="window.print()"></p>
+</div>
 
-<body>
-    <h1>GESTIÓN UNIVERSIDADES</h1>
-    {% block content %}
-    <div class="tablas">
-        <table id="tabla">
-            <thead>
-                <tr>
-                    <th>NOMBRE<br></th>
-                    <th>CIF</th>
-                    <th>CCAA</th>
-                    <th>SISTEMA EDUCATIVO</th>
-                    <th>GRADOS<br></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% with contador="0" %}
-                {% endwith %}
-                <!-- Si existen universidades, se mete en el for, que mete cada registro en la tabla -->
-                {% if listaTotal %}
-                    {% for tuplaUniGrado in listaTotal %}
-                        <tr>
-                            <td>{{ tuplaUniGrado.0.nombre }}</td>
-                            <td>{{ tuplaUniGrado.0.cif }}</td>
-                            <td>{{ tuplaUniGrado.0.ccaa }}</td>
-                            <td>{{ tuplaUniGrado.0.sistemaEducativo }}</td>
-                            <td><a href='/myapp/universidades/grados/{{ tuplaUniGrado.0.nombre }}/'> link al grado </a></td>
-                        </tr>
-                    {% endfor %}
-                {% endif %}
-            </tbody>
-        </table>
-        <table id="tabla2">
-            <thead>
-                <tr>
-                    <th>ESTUDIANTES<br></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if listaTotal %}
-                    {% for tuplaUniEstudiante in listaTotal %}
-                        <tr>
-                            <td><a href='/myapp/universidades/estudiantes/{{ tuplaUniEstudiante.0.nombre }}/'> link a los estudiantes </a></td>
-                        </tr>
-                    {% endfor %}
-                {% endif %}
-            </tbody>
-        </table>
-    </div>
-    {% endblock %}
 
-</body>
-</html>
+{% endblock %}

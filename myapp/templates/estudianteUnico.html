@@ -7,7 +7,7 @@
 <table id="tabla">
     <thead>
         <tr>
-            <th><button class="ordenar" onclick="ordenarTabla()">NOMBRE<br></button><br></th>
+            <th>NOMBRE<br></th>
             <th>DNI</th>
             <th>FECHA NACIMIENTO</th>
             <th>FECHA INICIO</th>
@@ -15,14 +15,14 @@
         </tr>
     </thead>
     <tbody>
-        {% if object_list %}
-        {% for estudiante in object_list %}
+        {% if object.estudiantes.all %}
+        {% for estudiante in object.estudiantes.all %}
         <tr>
             <td>{{ estudiante.nombre }}</td>
             <td>{{ estudiante.dni }}</td>
             <td>{{ estudiante.fecha_nacimiento }}</td>
             <td>{{ estudiante.fechaInicio }}</td>
-            <td>{{ estudiante.grado }}</td>
+            <td>{{ estudiante.grado }}</a></td>
         </tr>
         {% endfor %}
         {% endif %}

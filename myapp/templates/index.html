@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+  {% block body %}
+  <section class="hero_section ">
+    <div class="hero-container container">
+      <div class="hero_detail-box">
+        <h3>
+          Bienvenido/a a la red de <br>
+          universidades en España:
+        </h3>
+        <h1>
+          Universidades IWeb
+        </h1>
+        <p>
+          Dejamos a su disposición información relevante sobre universidades en España: grados disponibles, asignaturas
+          a cursar, etc.
+        </p>
+        <div class="hero_btn-continer">
+          <a href="" class="call_to-btn btn_white-border">
+            <span>
+              Contacto
+            </span>
+            <img src="{% static 'images/right-arrow.png' %}" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="hero_img-container">
+        <div>
+          <img src="{% static 'images/estudiantesInicio.jpg' %}" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+  <!-- end header section -->
+
+
+  <!-- teacher section -->
+  <section class="teacher_section layout_padding-bottom">
+    <div class="container">
+      <h2 class="main-heading ">
+        NUESTRAS UNIVERSIDADES
+      </h2>
+      <p class="text-center">
+        Cada una es única, ¡encuentra la tuya!
+      </p>
+      <div class="teacher_container layout_padding2">
+        <div class="card-deck">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/deusto.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Universidad de Deusto</h5>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/ehuUPV.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">EHU/UPV</h5>
+            </div>
+
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/mondragon.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Mondragon Unibertsitatea</h5>
+
+            </div>
+
+          </div>
+
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/upvValencia.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">UPV Valencia</h5>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="d-flex justify-content-center mt-3">
+        <a href="universidades" class="call_to-btn  ">
+
+          <span>
+            VER TODAS LAS UNIVERSIDADES
+          </span>
+          <img src="{% static 'images/right-arrow.png' %}" alt="">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {%endblock%}
