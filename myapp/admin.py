@@ -48,7 +48,7 @@ class AsignarturaAdmin(admin.ModelAdmin):
     # Se deja edita el número de créditos pulsando en 'advanced options - show'
     fieldsets =(
         (None, {
-            'fields':('nombre','cod',)
+            'fields':('grados','nombre','cod',)
         }), 
         ('Advanced options', {
             'classes': ('collapse', 'wide', 'extrapretty'),

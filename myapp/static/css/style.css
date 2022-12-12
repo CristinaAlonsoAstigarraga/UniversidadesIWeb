@@ -4,7 +4,7 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
-  color: yellow;
+  color: rgb(255, 157, 0);
   background-image: url(../images/body-bg.jpg);
   height: 100%;
 }
@@ -475,14 +475,13 @@ table td {
 /* footer section*/
 
 .footer_section {
+  width: 100%;
   position: relative;
   overflow: hidden;
   left: 0;
-  margin-top: 0;
   bottom: 0;
-  width: 100%;
   height: auto;
-  background-color: orange;
+  background-color: rgb(93, 130, 251);
   color: white;
   text-align: center;
   }

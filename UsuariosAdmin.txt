@@ -1,0 +1,18 @@
+USUARIOS Y CONTRASEÑAS DJANGO - UNIVERSIDADES IWEB
+
+ADMINISTRADORES UNIVERSIDADES
+	- root - root
+	- admin
+
+ALUMNOS
+	- marcoaa - 12alonso34
+	- AlbaCunado - 12alba34
+	- anaLopez - 12lopez34
+
+PROFESORES
+	- asierAgirre - 12asier34
+	- martaBaraia - 12marta34
+
+SECRETARIA GENERAL		-- cambiar permisos universidad (no editar)
+	- mariaMartinez - 12maria34
+	- xabierZarate - 12xabier34

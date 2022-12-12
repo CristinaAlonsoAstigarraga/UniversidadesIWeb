@@ -1,0 +1,87 @@
+[
+    {
+        "model": "myapp.universidad",
+        "pk": 1,
+        "fields": {
+            "nombre": "Universidad de Deusto",
+            "cif": "A12345678",
+            "ccaa": "País Vasco",
+            "sistemaEducativo": "Privada"
+        }
+    },
+    {
+        "model": "myapp.universidad",
+        "pk": 2,
+        "fields": {
+            "nombre": "UPV - Valencia",
+            "cif": "B98765432",
+            "ccaa": "Valencia",
+            "sistemaEducativo": "Publica"
+        }
+    }, 
+    {
+        "model": "myapp.grado",
+        "pk": 1,
+        "fields": {
+            "universidad": 1,
+            "nombre": "Ingeniería Informática",
+            "cod": "001",
+            "duracion": 4
+        }
+    },
+    {
+        "model": "myapp.grado",
+        "pk": 2,
+        "fields": {
+            "universidad": 4,
+            "nombre": "Derecho",
+            "cod": "008",
+            "duracion": 4
+        }
+    }, 
+    {
+        "model": "myapp.asignatura",
+        "pk": 1,
+        "fields": {
+            "grados": 1,
+            "nombre": "Ingeniería Web",
+            "cod": "A001",
+            "creditos": 6
+        }
+    },
+    {
+        "model": "myapp.asignatura",
+        "pk": 2,
+        "fields": {
+            "grados": 8,
+            "nombre": "Derecho civil",
+            "cod": "A005",
+            "creditos": 6
+        }
+    }, 
+    {
+        "model": "myapp.estudiante",
+        "pk": 1,
+        "fields": {
+            "universidad": 1,
+            "nombre": "Marco Alonso",
+            "dni": "77733311M",
+            "fecha_nacimiento": "2002-01-01",
+            "grado": 1,
+            "fechaInicio": "2020-09-07"
+        }
+    },
+    {
+        "model": "myapp.estudiante",
+        "pk": 2,
+        "fields": {
+            "universidad": 4,
+            "nombre": "Marta Baraia",
+            "dni": "55588833M",
+            "fecha_nacimiento": "2000-11-12",
+            "grado": 1,
+            "fechaInicio": "2018-09-11"
+        }
+    }
+
+]

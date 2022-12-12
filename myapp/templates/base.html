@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 
 <!DOCTYPE html>
 <html>
@@ -56,11 +56,11 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav  ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="{% url 'inicio' %}"> Inicio <span
+                                    <a class="nav-link" href="{% url 'inicio' %}"> {% trans 'Inicio' %} <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{% url 'show_universidades' %}"> Universidades </a>
+                                    <a class="nav-link" href="{% url 'show_universidades' %}"> {% trans 'Universidades' %} </a>
                                 </li>
 
                                 <li class="nav-item ">

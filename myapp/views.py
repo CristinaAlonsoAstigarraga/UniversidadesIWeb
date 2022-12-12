@@ -7,7 +7,7 @@ from .models import Universidad
 from .models import Grado
 from .models import Estudiante
 from .models import Asignatura
-
+from django.utils.translation import gettext as _
 
 
 
